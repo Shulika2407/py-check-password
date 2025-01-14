@@ -6,9 +6,11 @@ from app.main import check_password
     "password, result",
     [
         pytest.param("Pass@word1", True, id="one test"),
-        pytest.param("Str@ng", False, id="two test"),
-        pytest.param("qwerty1", False, id="three test"),
-
+        pytest.param("Vass@word1fffffffff", False, id="very long"),
+        pytest.param("V2@f", False, id="very short"),
+        pytest.param("Str@ngahk", False, id="not numbers"),
+        pytest.param("S2fbfbfbf", False, id="not special symbols"),
+        pytest.param("@2fbfbfaf", False, id="not uppercase letter"),
     ]
 )
 def test_check_password(password: str, result: bool) -> None:
